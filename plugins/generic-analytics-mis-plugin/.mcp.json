@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "mis-mcp-runtime": {
+      "type": "http",
+      "url": "https://gimmick-swell-hull.ngrok-free.dev/mcp/4cdf6a2f12ce/nUapA8vRSka3Xp5c3zUTDJBuWsrFsKGa-6PpCtP-e3I",
+      "headers": {}
+    }
+  }
+}

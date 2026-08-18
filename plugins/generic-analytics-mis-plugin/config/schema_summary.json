@@ -1,0 +1,248 @@
+{
+  "pack_slug": "generic-analytics",
+  "tables": [
+    {
+      "name": "sparda_leads",
+      "columns": [
+        "phone_number",
+        "name",
+        "agent_id",
+        "campaign_id",
+        "parent_name",
+        "gender",
+        "age_group",
+        "trial_date",
+        "trial_time",
+        "category",
+        "preferred_reschedule_date",
+        "preferred_reschedule_time",
+        "callback_date",
+        "callback_time",
+        "call_summary",
+        "outcome_of_the_call",
+        "leads_score",
+        "dataset_id",
+        "id",
+        "dataset_name",
+        "additional_data",
+        "call_unique_id",
+        "callRequestId",
+        "user_sentiment",
+        "sentiment_evidence",
+        "sentiment_confidence"
+      ],
+      "column_profiles": [
+        {
+          "column": "agent_id",
+          "null_percent": 0.0,
+          "cardinality": 3
+        },
+        {
+          "column": "campaign_id",
+          "null_percent": 0.0,
+          "cardinality": 14
+        },
+        {
+          "column": "gender",
+          "null_percent": 0.0,
+          "cardinality": 4
+        },
+        {
+          "column": "age_group",
+          "null_percent": 0.0,
+          "cardinality": 8
+        },
+        {
+          "column": "trial_date",
+          "null_percent": 0.0,
+          "cardinality": 43
+        },
+        {
+          "column": "category",
+          "null_percent": 0.02,
+          "cardinality": 21
+        },
+        {
+          "column": "preferred_reschedule_date",
+          "null_percent": 95.84,
+          "cardinality": 33
+        },
+        {
+          "column": "callback_date",
+          "null_percent": 95.97,
+          "cardinality": 29
+        },
+        {
+          "column": "outcome_of_the_call",
+          "null_percent": 0.0,
+          "cardinality": 4
+        },
+        {
+          "column": "leads_score",
+          "null_percent": 12.86,
+          "cardinality": 20
+        },
+        {
+          "column": "dataset_id",
+          "null_percent": 0.0,
+          "cardinality": 14
+        },
+        {
+          "column": "id",
+          "null_percent": 0.0,
+          "cardinality": 5530
+        },
+        {
+          "column": "dataset_name",
+          "null_percent": 0.0,
+          "cardinality": 10
+        },
+        {
+          "column": "call_unique_id",
+          "null_percent": 0.0,
+          "cardinality": 5412
+        },
+        {
+          "column": "user_sentiment",
+          "null_percent": 62.19,
+          "cardinality": 4
+        },
+        {
+          "column": "sentiment_confidence",
+          "null_percent": 62.19,
+          "cardinality": 4
+        }
+      ]
+    }
+  ],
+  "guardrails": {
+    "max_query_rows": 200,
+    "query_timeout_seconds": 25
+  },
+  "data_context": {
+    "notes": [
+      {
+        "question": "What does it mean for your business that nearly all `agent_id` values are 'spardha-staging'?",
+        "answer": "this is campaign run for single session "
+      },
+      {
+        "question": "What does it mean for your business that 61% of `callback_date` entries are the string 'NULL' instead of actual missing values?",
+        "answer": "no one is opted for callback ."
+      },
+      {
+        "question": "What does it mean for your business that 62.4% of `callback_time` entries are the string 'NULL'?",
+        "answer": "ignore"
+      },
+      {
+        "question": "What does it mean for your business that almost all `campaign_id` values are 'bf7e5967-9de0-479e-8617-524daa2604cf'?",
+        "answer": "this is the id for campaign that has been done"
+      },
+      {
+        "question": "What does it mean for your business that nearly all `dataset_id` values are 'stream-bf7e5967-9de0-479e-8617-524daa2604cf'?",
+        "answer": "the dataset where we picked the user phonenumbers to call"
+      },
+      {
+        "question": "Anything else about this data an analyst should know?",
+        "answer": "this is data of ai_calling to get the leads ."
+      }
+    ],
+    "findings": [
+      {
+        "table": "sparda_leads",
+        "column": "agent_id",
+        "severity": "medium",
+        "summary": "94.9% of 5,530 non-null rows in \"agent_id\" are \"spardha-staging\"."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "callback_date",
+        "severity": "medium",
+        "summary": "61.0% of 223 non-null rows in \"callback_date\" are \"NULL\"."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "campaign_id",
+        "severity": "medium",
+        "summary": "94.4% of 5,530 non-null rows in \"campaign_id\" are \"bf7e5967-9de0-479e-8617-524daa2604cf\"."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "dataset_id",
+        "severity": "medium",
+        "summary": "94.4% of 5,530 non-null rows in \"dataset_id\" are \"stream-bf7e5967-9de0-479e-8617-524daa2604cf\"."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "dataset_name",
+        "severity": "medium",
+        "summary": "94.4% of 5,530 non-null rows in \"dataset_name\" are \"demo\"."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "leads_score",
+        "severity": "medium",
+        "summary": "93.3% of 4,819 non-null rows in \"leads_score\" are \"LOW\"."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "outcome_of_the_call",
+        "severity": "medium",
+        "summary": "84.8% of 5,530 non-null rows in \"outcome_of_the_call\" are \"unclear\"."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "user_sentiment",
+        "severity": "medium",
+        "summary": "65.5% of 2,091 non-null rows in \"user_sentiment\" are \"neutral\"."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "callback_date",
+        "severity": "medium",
+        "summary": "\"callback_date\" is empty for 96.0% of rows."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "preferred_reschedule_date",
+        "severity": "medium",
+        "summary": "\"preferred_reschedule_date\" is empty for 95.8% of rows."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "sentiment_confidence",
+        "severity": "medium",
+        "summary": "\"sentiment_confidence\" is empty for 62.2% of rows."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "user_sentiment",
+        "severity": "medium",
+        "summary": "\"user_sentiment\" is empty for 62.2% of rows."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "category",
+        "severity": "low",
+        "summary": "\"category\" has multiple spellings of the same value: Western Vocals/Western vocals, guitar/Guitar."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "dataset_name",
+        "severity": "low",
+        "summary": "\"dataset_name\" has multiple spellings of the same value: test/Test."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "gender",
+        "severity": "low",
+        "summary": "\"gender\" has multiple spellings of the same value: male/Male."
+      },
+      {
+        "table": "sparda_leads",
+        "column": "leads_score",
+        "severity": "low",
+        "summary": "\"leads_score\" has multiple spellings of the same value: HIGH/high."
+      }
+    ]
+  }
+}

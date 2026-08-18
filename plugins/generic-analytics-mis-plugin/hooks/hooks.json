@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "You are working with Generic Analytics Pack MIS data. Guardrails for this session:\n- No industry-specific vocabulary is assumed \u2014 treat all categorical values literally\n- All data access must be read-only\n\n## What the business owner told us\n- Q: What does it mean for your business that nearly all `agent_id` values are 'spardha-staging'?  A: this is campaign run for single session \n- Q: What does it mean for your business that 61% of `callback_date` entries are the string 'NULL' instead of actual missing values?  A: no one is opted for callback .\n- Q: What does it mean for your business that 62.4% of `callback_time` entries are the string 'NULL'?  A: ignore\n- Q: What does it mean for your business that almost all `campaign_id` values are 'bf7e5967-9de0-479e-8617-524daa2604cf'?  A: this is the id for campaign that has been done\n- Q: What does it mean for your business that nearly all `dataset_id` values are 'stream-bf7e5967-9de0-479e-8617-524daa2604cf'?  A: the dataset where we picked the user phonenumbers to call\n- Q: Anything else about this data an analyst should know?  A: this is data of ai_calling to get the leads .\n## Known data-quality findings\n- [medium] sparda_leads.agent_id: 94.9% of 5,530 non-null rows in \"agent_id\" are \"spardha-staging\".\n- [medium] sparda_leads.callback_date: 61.0% of 223 non-null rows in \"callback_date\" are \"NULL\".\n- [medium] sparda_leads.callback_time: 62.4% of 218 non-null rows in \"callback_time\" are \"NULL\".\n- [medium] sparda_leads.campaign_id: 94.4% of 5,530 non-null rows in \"campaign_id\" are \"bf7e5967-9de0-479e-8617-524daa2604cf\".\n- [medium] sparda_leads.dataset_id: 94.4% of 5,530 non-null rows in \"dataset_id\" are \"stream-bf7e5967-9de0-479e-8617-524daa2604cf\".\n- [medium] sparda_leads.dataset_name: 94.4% of 5,530 non-null rows in \"dataset_name\" are \"demo\".\n- [medium] sparda_leads.leads_score: 93.3% of 4,819 non-null rows in \"leads_score\" are \"LOW\".\n- [medium] sparda_leads.outcome_of_the_call: 84.8% of 5,530 non-null rows in \"outcome_of_the_call\" are \"unclear\".\n- [medium] sparda_leads.preferred_reschedule_time: 60.2% of 226 non-null rows in \"preferred_reschedule_time\" are \"NULL\".\n- [medium] sparda_leads.user_sentiment: 65.5% of 2,091 non-"
+          }
+        ]
+      }
+    ]
+  }
+}

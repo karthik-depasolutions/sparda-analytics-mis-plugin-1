@@ -1,0 +1,44 @@
+{
+  "kind": "postgres",
+  "connection": {
+    "duckdb_attach_sql": [
+      "INSTALL postgres; LOAD postgres;",
+      "ATTACH '${FORGE_SOURCE_DB_URL}' AS srcdb (TYPE POSTGRES, READ_ONLY)"
+    ],
+    "read_only": true
+  },
+  "tables": [
+    {
+      "name": "sparda_leads",
+      "physical_ref": "srcdb.\"client_sparda_leads_4cdf6a2f12ce\".\"sparda_leads\"",
+      "columns": [
+        "phone_number",
+        "name",
+        "agent_id",
+        "campaign_id",
+        "parent_name",
+        "gender",
+        "age_group",
+        "trial_date",
+        "trial_time",
+        "category",
+        "preferred_reschedule_date",
+        "preferred_reschedule_time",
+        "callback_date",
+        "callback_time",
+        "call_summary",
+        "outcome_of_the_call",
+        "leads_score",
+        "dataset_id",
+        "id",
+        "dataset_name",
+        "additional_data",
+        "call_unique_id",
+        "callRequestId",
+        "user_sentiment",
+        "sentiment_evidence",
+        "sentiment_confidence"
+      ]
+    }
+  ]
+}

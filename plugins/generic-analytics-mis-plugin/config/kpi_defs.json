@@ -1,0 +1,38 @@
+{
+  "pack_slug": "generic-analytics",
+  "generated_at": "2026-08-18T09:41:14.043643+00:00",
+  "kpis": [
+    {
+      "id": "count_by_category",
+      "label": "Count by Category",
+      "description": "Record count grouped by the primary categorical dimension.",
+      "unit": "count",
+      "sql": "SELECT \"category\" AS category, COUNT(*) AS record_count FROM srcdb.\"client_sparda_leads_4cdf6a2f12ce\".\"sparda_leads\" GROUP BY \"category\" ORDER BY record_count DESC",
+      "assertions": [],
+      "result_columns": [
+        "category",
+        "record_count"
+      ],
+      "source_kpi_id": "count_by_category"
+    },
+    {
+      "id": "total_records",
+      "label": "Total Records",
+      "description": "Total number of rows in the primary table.",
+      "unit": "count",
+      "sql": "SELECT COUNT(*) AS total_records FROM srcdb.\"client_sparda_leads_4cdf6a2f12ce\".\"sparda_leads\"",
+      "assertions": [
+        "total_records >= 0"
+      ],
+      "result_columns": [
+        "total_records"
+      ],
+      "source_kpi_id": "total_records"
+    }
+  ],
+  "skipped": [
+    "average_measure",
+    "sum_measure",
+    "trend_by_month"
+  ]
+}
